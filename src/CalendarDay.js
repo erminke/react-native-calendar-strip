@@ -309,8 +309,9 @@ class CalendarDay extends Component {
       .map((dot, index) => {
         const selectedColor = dot.selectedColor || dot.selectedDotColor; // selectedDotColor deprecated
         const backgroundColor = this.state.selected && selectedColor ? selectedColor : dot.color;
+        const customComponent = dot.component || null;
         return (
-          <View
+         customComponent ? customComponent : <View
             key={dot.key || (formattedDate + index)}
             style={[
               baseDotStyle,
